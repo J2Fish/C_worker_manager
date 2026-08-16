@@ -14,8 +14,8 @@ class WorkersTable{
     public:
         WorkersTable(string address);
         void add(AbstractWorker& w);
-        AbstractWorker** search(string name);
-        AbstractWorker** search(int number);
+        int search(string name);
+        int search(int number);
         int del(int number);
         void show_table();
         int count_file();

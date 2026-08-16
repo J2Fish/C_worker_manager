@@ -20,20 +20,20 @@ void WorkersTable::add(AbstractWorker& w){
     ifs << w.m_Number <<" "<< w.m_Name <<" "<< w.m_Job <<endl;
 }
 
-AbstractWorker** WorkersTable::search(string name){
-    AbstractWorker** p = nullptr;
+int WorkersTable::search(string name){
+    int flag = -1;
     for (int i = 0; i < len; i++ ){
         if (name == *(names[i])){
-            p = &(wkers[i]);
+            flag = i;
         }
     }
-    if (p == nullptr) {
+    if (flag == -1) {
         cout << "找不到名为" << name << "的职工" << endl;
     }
-    return p;
+    return flag;
 }
 
-AbstractWorker** WorkersTable::search(int number){
+int WorkersTable::search(int number){
     AbstractWorker** p = nullptr;
     for (int i = 0; i < len; i++ ){
         if (number == *(ids[i])){
