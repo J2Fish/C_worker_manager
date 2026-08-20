@@ -20,14 +20,22 @@ class WorkersTable{
         void show_table();
         int count_file();
         int end_table();
-        
+        int add(int id, string name, int job);
         void table_commit();
-        void flie_commit();
+        int file_commit();
+        int revise(int number,int job);
+        int revise(int number, string name);
+        int revise(int number, string name, int job);
+        void sort(int mode);
+        void clear();
     protected:
         void init_table();
+        AbstractWorker* job_judge(int job, int id, string name);
         string file;
         int len = 0;
-        int len_table = 0;
+        int end = 0;
+        int len_add = 0;
+        AbstractWorker** add_wkers = nullptr;
         AbstractWorker** wkers = nullptr;
         string** names = nullptr;
         int** ids = nullptr;
